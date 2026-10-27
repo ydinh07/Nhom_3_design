@@ -1,0 +1,17 @@
+/* THÀNH VIÊN 2: BỘ LỌC VÀ SỐ LƯỢNG PHIM TRONG KHO. */
+.bo-loc { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin: 20px 0; padding: 15px; border: 1px solid var(--vien); border-radius: 12px; background: #15111d; }
+.bo-loc label, .form-tai-khoan label { display: grid; gap: 6px; color: var(--chu-phu); }
+.bo-loc select, .form-tai-khoan input { min-width: 170px; padding: 10px; border: 1px solid var(--vien); border-radius: 8px; background: var(--the); color: white; }
+#so-luong-phim { margin-bottom: 14px; }
+
+/* THÀNH VIÊN 3: BỐ CỤC CHI TIẾT VÀ KHUNG VIDEO MẪU. */
+.noi-dung-chi-tiet { display: grid; grid-template-columns: 220px 1fr; gap: 25px; padding: 22px; border: 1px solid var(--vien); border-radius: 16px; background: var(--the); }
+.poster-chi-tiet { width: 100%; border-radius: 10px; }
+.thong-tin-bo-sung { color: var(--chu-phu); }
+.video-mau { width: 100%; margin-top: 16px; border-radius: 10px; background: black; }
+.hang-nut { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.thong-bao-rong { padding: 25px; border: 1px dashed var(--vien); border-radius: 12px; color: var(--chu-phu); text-align: center; }
+@media (max-width: 600px) {
+    .noi-dung-chi-tiet { grid-template-columns: 1fr; }
+    .poster-chi-tiet { max-width: 220px; }
+}

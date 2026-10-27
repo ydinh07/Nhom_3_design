@@ -1,0 +1,14 @@
+.progress{
+    display: flex;
+    border: 1px solid hsl(258, 24%, 8%);
+}
+.progress-bar{
+    width: 70%;
+    background-color: aqua;
+   
+}
+.progress-bar1{
+    width: 30%;
+    background-color: hwb(60 62% 36%);
+    
+}

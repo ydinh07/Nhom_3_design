@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS media query</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .vtc {
+            font-size: 40px;
+            font-weight: bold;
+            color: green;
+        }
+
+        @media screen and (max-width:800px) {
+            body {
+                text-align: left;
+                background-color: green;
+            }
+            .vtc {
+                font-size: 30px;
+                font-weight: bold;
+                color: white;
+            }
+            .vtcacademy {
+                color: white;
+            }
+        }
+
+        @media screen and (max-width:500px) {
+            body {
+                text-align: right;
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="vtc">Wellcome VTC Academy</div>
+    <div class="vtcacademy">A computer science portal for VTC</div>
+</body>
+</html>

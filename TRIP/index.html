@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieFlix - Thế giới phim</title>
+
+    <!-- ĐINH: Kết nối file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- DIM: Màn hình xác nhận độ tuổi -->
+    <div id="ageModal" class="overlay">
+        <div class="modal age-box">
+            <h1 class="logo">Movie<span>Flix</span></h1>
+            <h2>Xác nhận độ tuổi</h2>
+            <p>Bạn có đủ 18 tuổi để truy cập nội dung dành cho người trưởng thành không?</p>
+            <div class="button-group">
+                <button id="ageYes" class="btn btn-primary">Tôi đủ 18 tuổi</button>
+                <button id="ageNo" class="btn btn-secondary">Tôi dưới 18 tuổi</button>
+            </div>
+            <p id="ageMessage" class="message"></p>
+        </div>
+    </div>
+
+    <!-- ĐINH: Header, logo, menu và tìm kiếm -->
+    <header class="header">
+        <a href="#" class="logo" id="logoLink">Movie<span>Flix</span></a>
+
+        <nav class="navbar">
+            <a href="#home">Trang chủ</a>
+            <a href="#movies">Khám phá phim</a>
+            <a href="#favorites">Phim yêu thích</a>
+        </nav>
+
+        <div class="header-actions">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Tìm tên phim..."
+                aria-label="Tìm phim"
+            >
+            <button id="loginBtn" class="btn btn-secondary">Đăng nhập</button>
+            <button id="registerBtn" class="btn btn-primary">Đăng ký</button>
+        </div>
+    </header>
+
+    <main id="mainContent" class="hidden">
+
+        <!-- ĐINH: Banner giới thiệu phim nổi bật -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">MOVIEFLIX ORIGINAL</p>
+                <h1>Thế giới phim trong tầm tay</h1>
+                <p>
+                    Khám phá những bộ phim hấp dẫn, từ hành động,
+                    tình cảm đến khoa học viễn tưởng.
+                </p>
+                <a href="#movies" class="btn btn-primary">Khám phá ngay</a>
+            </div>
+        </section>
+
+        <!-- TÍN: Bộ lọc thể loại và danh sách phim -->
+        <section id="movies" class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">DÀNH CHO BẠN</p>
+                    <h2>Khám phá phim</h2>
+                </div>
+                <span id="movieCount" class="movie-count">0 phim</span>
+            </div>
+
+            <div class="filter-bar">
+                <label for="genreFilter">Thể loại:</label>
+                <select id="genreFilter">
+                    <option value="all">Tất cả</option>
+                    <option value="Hành động">Hành động</option>
+                    <option value="Tình cảm">Tình cảm</option>
+                    <option value="Hoạt hình">Hoạt hình</option>
+                    <option value="Khoa học viễn tưởng">Khoa học viễn tưởng</option>
+                    <option value="Kinh dị">Kinh dị</option>
+                </select>
+
+                <label for="sortFilter">Sắp xếp:</label>
+                <select id="sortFilter">
+                    <option value="default">Mặc định</option>
+                    <option value="az">Tên A - Z</option>
+                    <option value="year">Năm mới nhất</option>
+                </select>
+            </div>
+
+            <div id="movieList" class="movie-grid"></div>
+            <p id="emptyMessage" class="empty-message hidden">
+                Không tìm thấy phim phù hợp.
+            </p>
+        </section>
+
+        <!-- TÍN: Khu vực phim yêu thích -->
+        <section id="favorites" class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">BỘ SƯU TẬP CỦA BẠN</p>
+                    <h2>Phim yêu thích</h2>
+                </div>
+            </div>
+            <div id="favoriteList" class="movie-grid"></div>
+            <p id="favoriteEmpty" class="empty-message">
+                Bạn chưa có phim yêu thích.
+            </p>
+        </section>
+    </main>
+
+    <!-- DIM: Cửa sổ chi tiết phim -->
+    <div id="detailModal" class="overlay">
+        <div class="modal detail-modal">
+            <button class="close-btn" data-close="detailModal"
+                    aria-label="Đóng">×</button>
+            <div id="detailContent"></div>
+        </div>
+    </div>
+
+    <!-- DIM: Cửa sổ trình phát video -->
+    <div id="videoModal" class="overlay">
+        <div class="modal video-modal">
+            <button class="close-btn" data-close="videoModal"
+                    aria-label="Đóng">×</button>
+            <h2 id="videoTitle">Đang phát phim</h2>
+            <video id="videoPlayer" controls playsinline>
+                Trình duyệt của bạn không hỗ trợ video.
+            </video>
+            <p class="notice">
+                Video mẫu phục vụ trình diễn chức năng của website.
+            </p>
+        </div>
+    </div>
+
+    <!-- DIM: Cửa sổ đăng nhập và đăng ký -->
+    <div id="authModal" class="overlay">
+        <div class="modal auth-modal">
+            <button class="close-btn" data-close="authModal"
+                    aria-label="Đóng">×</button>
+
+            <h2 id="authTitle">Đăng nhập</h2>
+
+            <form id="authForm">
+                <label for="authUsername">Tên tài khoản</label>
+                <input id="authUsername" type="text"
+                       placeholder="Nhập tên tài khoản" required minlength="3">
+
+                <label for="authPassword">Mật khẩu</label>
+                <input id="authPassword" type="password"
+                       placeholder="Nhập mật khẩu" required minlength="6">
+
+                <button id="authSubmit" type="submit"
+                        class="btn btn-primary full-width">
+                    Đăng nhập
+                </button>
+            </form>
+
+            <p id="authMessage" class="message"></p>
+            <p id="authSwitchText" class="auth-switch">
+                Chưa có tài khoản?
+                <button id="switchAuth" class="text-btn">Đăng ký</button>
+            </p>
+            <p class="notice">
+                Bản demo chỉ lưu tài khoản trên trình duyệt, không dùng
+                mật khẩu thật.
+            </p>
+        </div>
+    </div>
+
+    <!-- ĐINH: Footer -->
+    <footer class="footer">
+        <a href="#home" class="logo">Movie<span>Flix</span></a>
+        <p>Khám phá phim theo cách của bạn.</p>
+        <p>© 2026 MovieFlix - Dự án học tập thiết kế web.</p>
+    </footer>
+
+    <!-- ĐINH: Kết nối JavaScript -->
+    <div id="toast" class="toast" role="status"></div>
+    <script src="script.js"></script>
+</body>
+</html>

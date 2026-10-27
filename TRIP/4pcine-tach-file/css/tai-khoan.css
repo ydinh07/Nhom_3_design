@@ -1,0 +1,9 @@
+/* THÀNH VIÊN 4: GIAO DIỆN ĐĂNG NHẬP VÀ TẠO TÀI KHOẢN. */
+.hop-tai-khoan { width: min(460px, 100%); margin: 25px auto; padding: 28px; border: 1px solid var(--vien); border-radius: 16px; background: var(--the); }
+.nut-doi-bieu-mau { display: flex; gap: 8px; margin-bottom: 20px; }
+.nut-tab { flex: 1; padding: 10px; border: 1px solid var(--vien); border-radius: 8px; background: #110e17; color: var(--chu-phu); }
+.nut-tab.dang-chon { border-color: var(--tim); color: white; background: #342044; }
+.form-tai-khoan { display: grid; gap: 14px; }
+.form-tai-khoan input { width: 100%; }
+.thong-bao { min-height: 22px; margin: 0; color: #d9c6ff; }
+.ghi-chu { margin: 16px 0 0; color: var(--chu-phu); font-size: 12px; }

@@ -1,0 +1,303 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #eeeeee;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   KHUNG CHÍNH
+========================= */
+
+.page {
+    width: 1100px;
+    min-height: 750px;
+
+    margin: auto;
+
+    display: flex;
+
+    background: white;
+    border: 1px solid #999;
+}
+
+
+/* =========================
+   BÊN TRÁI
+========================= */
+
+.left {
+    width: 28%;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-right: 1px solid #aaa;
+}
+
+
+/* ẢNH BÊN TRÁI */
+
+.anh {
+    width: 180px;
+    height: 180px;
+
+    object-fit: cover;
+
+    display: block;
+    margin: 0 auto 25px;
+}
+
+
+/* MENU */
+
+.menu {
+    width: 80%;
+    margin: auto;
+}
+
+.menu p {
+    margin: 0;
+
+    padding: 15px 5px;
+
+    border-bottom: 1px solid #ccc;
+
+    color: #b05d5d;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   BÊN PHẢI
+========================= */
+
+.right {
+    width: 72%;
+
+    padding: 35px;
+}
+
+
+/* =========================
+   TIÊU ĐỀ
+========================= */
+
+.title {
+    text-align: center;
+}
+
+.title h1 {
+    margin: 0 0 15px;
+
+    font-size: 30px;
+}
+
+.title p {
+    margin: 0 0 20px;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    text-align: left;
+}
+
+.title h3 {
+    margin: 20px 0;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   6 ẢNH
+========================= */
+
+.cards {
+    margin: 0;
+}
+
+.cards .col-4 {
+    padding: 0 7px;
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.cards img {
+    width: 100%;
+    height: 180px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.cards h5 {
+    margin: 7px 0 4px;
+
+    font-size: 15px;
+}
+
+.cards p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+/* =================================================
+   MÀN HÌNH NHỎ
+   GIỐNG ẢNH BẠN GỬI
+================================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 2px;
+        background: white;
+    }
+
+
+    /* KHUNG TO CO LẠI */
+
+    .page {
+        width: 100%;
+        min-height: 0;
+
+        margin: 0;
+
+        border: 1px solid #999;
+    }
+
+
+    /* =====================
+       BÊN TRÁI
+    ===================== */
+
+    .left {
+        width: 38%;
+
+        padding: 8px 5px;
+    }
+
+
+    .anh {
+        width: 55px;
+        height: 75px;
+
+        margin: 0 auto 8px;
+    }
+
+
+    .menu {
+        width: 90%;
+    }
+
+
+    .menu p {
+        padding: 7px 1px;
+
+        font-size: 7px;
+
+        line-height: 1.2;
+    }
+
+
+    /* =====================
+       BÊN PHẢI
+    ===================== */
+
+    .right {
+        width: 62%;
+
+        padding: 8px 6px;
+    }
+
+
+    /* TIÊU ĐỀ */
+
+    .title h1 {
+        font-size: 12px;
+
+        line-height: 1.15;
+
+        margin: 0 0 5px;
+    }
+
+
+    .title p {
+        font-size: 6px;
+
+        line-height: 1.25;
+
+        margin: 0 0 5px;
+
+        text-align: left;
+    }
+
+
+    .title h3 {
+        font-size: 7px;
+
+        margin: 5px 0 7px;
+    }
+
+
+    /* =====================
+       6 ẢNH
+       LUÔN 3 ẢNH / HÀNG
+    ===================== */
+
+    .cards {
+        margin: 0;
+    }
+
+
+    .cards .col-4 {
+        width: 33.333333%;
+
+        flex: 0 0 33.333333%;
+
+        max-width: 33.333333%;
+
+        padding: 0 2px;
+
+        margin-bottom: 5px;
+    }
+
+
+    .cards img {
+        width: 100%;
+
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        object-fit: cover;
+    }
+
+
+    .cards h5 {
+        margin: 2px 0 1px;
+
+        font-size: 6px;
+    }
+
+
+    .cards p {
+        margin: 0;
+
+        font-size: 4.5px;
+
+        line-height: 1.1;
+    }
+
+}

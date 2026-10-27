@@ -1,0 +1,655 @@
+
+/* ==================================================
+   ĐÔ - PHẦN 1: MÀU SẮC VÀ THIẾT LẬP CHUNG
+================================================== */
+:root {
+    --bg: #09070f;
+    --surface: #15111f;
+    --card: #1d172b;
+    --purple: #8b5cf6;
+    --purple-light: #a78bfa;
+    --white: #ffffff;
+    --muted: #b9b2c9;
+    --border: #342846;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button, select {
+    cursor: pointer;
+}
+
+button:focus-visible, a:focus-visible,
+input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--purple-light);
+    outline-offset: 3px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--purple-light);
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 17px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.btn-primary {
+    color: var(--white);
+    background: var(--purple);
+}
+
+.btn-primary:hover {
+    background: var(--purple-light);
+    color: #160d25;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    border-color: var(--purple-light);
+    color: var(--purple-light);
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* ==================================================
+   ĐÔ - PHẦN 2: HEADER VÀ THANH MENU
+================================================== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 17px 5%;
+    background: rgba(9, 7, 15, 0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.navbar a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.navbar a:hover {
+    color: var(--purple-light);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-actions input {
+    width: 175px;
+    min-width: 0;
+    padding: 10px 12px;
+    background: var(--surface);
+    color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.header-actions input::placeholder {
+    color: var(--muted);
+}
+
+/* ==================================================
+   ĐÔ - PHẦN 3: BANNER VÀ KHU VỰC CHÍNH
+================================================== */
+.hero {
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    padding: 65px 8%;
+    background:
+        linear-gradient(90deg, #09070f 5%, rgba(9,7,15,.88) 43%,
+        rgba(9,7,15,.2) 100%),
+        linear-gradient(0deg, #09070f, transparent 50%),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+}
+
+.hero-content {
+    max-width: 590px;
+}
+
+.eyebrow {
+    color: var(--purple-light);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.hero-content > p:not(.eyebrow) {
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 24px;
+}
+
+.section {
+    padding: 42px 5%;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+}
+
+.movie-count {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ==================================================
+   TÍN - PHẦN 4: BỘ LỌC VÀ THẺ PHIM
+================================================== */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filter-bar label {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.filter-bar select {
+    padding: 9px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--white);
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.movie-card {
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--purple);
+}
+
+.poster-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2 / 3;
+    background: var(--surface);
+}
+
+.poster {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.35s;
+}
+
+.movie-card:hover .poster {
+    transform: scale(1.05);
+}
+
+.age-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 3px 7px;
+    border-radius: 5px;
+    background: var(--purple);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(9, 7, 15, 0.85);
+    color: var(--white);
+    font-size: 20px;
+}
+
+.favorite-btn.active {
+    color: var(--purple-light);
+}
+
+.movie-info {
+    padding: 14px;
+}
+
+.movie-info h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.movie-meta {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.movie-actions .btn {
+    flex: 1;
+    padding: 8px 5px;
+    font-size: 12px;
+}
+
+.empty-message {
+    padding: 25px 0;
+    color: var(--muted);
+}
+
+/* ==================================================
+   DIM - PHẦN 5: MODAL VÀ CHI TIẾT PHIM
+================================================== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.overlay.show {
+    display: flex;
+}
+
+.modal {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+}
+
+.modal h2 {
+    margin-bottom: 12px;
+}
+
+.modal p {
+    color: var(--muted);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    color: var(--white);
+    font-size: 30px;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--purple-light);
+}
+
+.age-box {
+    text-align: center;
+}
+
+.age-box .logo {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.age-box h2 {
+    margin-bottom: 12px;
+}
+
+.button-group {
+    display: grid;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.detail-modal {
+    max-width: 850px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.detail-layout {
+    display: grid;
+    grid-template-columns: minmax(180px, 270px) 1fr;
+    gap: 25px;
+    align-items: start;
+    padding-top: 12px;
+}
+
+.detail-poster {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.detail-description {
+    margin: 15px 0;
+    line-height: 1.8;
+}
+
+.detail-meta {
+    color: var(--purple-light);
+    margin: 10px 0;
+}
+
+.detail-credits {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.video-modal {
+    max-width: 900px;
+}
+
+.video-modal video {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    background: #000;
+}
+
+.auth-modal form {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.auth-modal label {
+    font-size: 14px;
+}
+
+.auth-modal input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--white);
+}
+
+.auth-switch {
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.text-btn {
+    border: none;
+    background: transparent;
+    color: var(--purple-light);
+    font-weight: bold;
+}
+
+.message {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.notice {
+    font-size: 12px;
+    margin-top: 14px;
+}
+
+/* ==================================================
+   ĐÔ - PHẦN 6: FOOTER VÀ THÔNG BÁO
+================================================== */
+.footer {
+    padding: 35px 5%;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.footer p {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.toast {
+    position: fixed;
+    z-index: 200;
+    right: 20px;
+    bottom: 20px;
+    max-width: calc(100% - 40px);
+    padding: 13px 18px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--card);
+    color: var(--white);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: 0.25s;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==================================================
+   ĐÔ - PHẦN 7: RESPONSIVE CHO MỌI MÀN HÌNH
+================================================== */
+@media (max-width: 1000px) {
+    .header {
+        flex-wrap: wrap;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions input {
+        flex: 1;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .header {
+        padding: 14px 4%;
+        gap: 12px;
+    }
+
+    .navbar {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 12px;
+    }
+
+    .header-actions {
+        flex-wrap: wrap;
+    }
+
+    .header-actions input {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .header-actions .btn {
+        flex: 1;
+        padding: 9px 8px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 350px;
+        padding: 45px 6%;
+        background-position: center;
+    }
+
+    .section {
+        padding: 30px 4%;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .movie-info {
+        padding: 10px;
+    }
+
+    .movie-info h3 {
+        font-size: 14px;
+    }
+
+    .movie-actions {
+        flex-direction: column;
+    }
+
+    .detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-poster {
+        width: 55%;
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    .modal {
+        padding: 25px 18px;
+    }
+
+    .close-btn {
+        top: 7px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .poster-wrap {
+        aspect-ratio: 3 / 4;
+    }
+}

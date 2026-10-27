@@ -1,0 +1,50 @@
+/* THÀNH VIÊN 1: BANNER, CÁC THỂ LOẠI VÀ THẺ PHIM. */
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 30px 5%;
+    border: 1px solid var(--vien);
+    border-radius: 18px;
+    background: radial-gradient(circle at 80% 25%, #4a2769, #1b1328 48%, #110e17);
+}
+.banner-chu { max-width: 620px; }
+.banner h1 { font-size: clamp(30px, 4vw, 46px); line-height: 1.15; }
+.banner h1 span { color: #c3a5ff; }
+.banner p { color: var(--chu-phu); }
+.banner-anh { width: 190px; min-width: 150px; transform: rotate(3deg); }
+.banner-anh img { width: 100%; border-radius: 12px; }
+.banner-anh span { display: block; margin-top: 8px; text-align: center; color: #d8c5ff; font-size: 12px; }
+.khu-phim { margin-top: 30px; }
+.dau-muc { display: flex; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 14px; }
+.dau-muc h2 { margin: 2px 0 0; font-size: 22px; }
+.ds-the-loai { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.the-loai {
+    min-height: 85px;
+    padding: 12px;
+    text-align: left;
+    color: white;
+    border: 1px solid var(--vien);
+    border-radius: 10px;
+    background: #21172d;
+}
+.the-loai strong, .the-loai small { display: block; }
+.the-loai small { margin-top: 5px; color: var(--chu-phu); font-size: 12px; }
+.the-loai:hover, .the-phim:hover { border-color: var(--tim); }
+.luoi-phim { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.the-phim { overflow: hidden; border: 1px solid #2b2235; border-radius: 10px; background: var(--the); }
+.anh-phim { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #211a2b; }
+.thong-tin-phim { padding: 9px; }
+.ten-phim { min-height: 40px; margin: 0 0 6px; font-size: 14px; }
+.duoi-phim { display: flex; justify-content: space-between; gap: 5px; color: var(--chu-phu); font-size: 12px; }
+.nut-xem-phim, .nut-yeu-thich { width: 100%; margin-top: 8px; padding: 7px; border: 0; border-radius: 6px; color: white; background: #372748; }
+.nut-yeu-thich.da-thich { color: #ff8ca5; }
+@media (max-width: 900px) {
+    .ds-the-loai { grid-template-columns: repeat(3, 1fr); }
+    .luoi-phim { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 560px) {
+    .banner-anh { display: none; }
+    .ds-the-loai, .luoi-phim { grid-template-columns: repeat(2, 1fr); }
+}

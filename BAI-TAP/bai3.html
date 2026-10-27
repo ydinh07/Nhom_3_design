@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Newspaper - The Baker Street Inquirer</title>
+    <style>
+        /* Định dạng chung */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #d8d8d8;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Container chính mô phỏng tờ báo */
+        .newspaper-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #eae7e1;
+            border: 1px solid #ccc;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Tiêu đề chính "Responsive Web Design" ở ngoài tờ báo */
+        .page-title {
+            max-width: 900px;
+            margin: 0 auto 15px auto;
+            color: #d92323;
+            font-size: 28px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        /* Layout hai cột lớn (Left Sidebar + Right Content) */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 30px;
+        }
+
+        /* Sidebar bên trái (Logo + Menu) */
+        .sidebar {
+            text-align: center;
+            border-right: 1px solid #c5c2ba;
+            padding-right: 20px;
+        }
+
+        .logo-img {
+            width: 100%;
+            max-width: 140px;
+            filter: grayscale(100%);
+            margin-bottom: 10px;
+        }
+
+        .newspaper-title {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+            padding: 5px 0;
+            margin-bottom: 20px;
+        }
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            border-top: 1px solid #c5c2ba;
+            padding: 10px 0;
+        }
+
+        .menu li:last-child {
+            border-bottom: 1px solid #c5c2ba;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #555;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Phần nội dung bên phải */
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 20px;
+            color: #444;
+        }
+
+        .intro-text {
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #555;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 14px;
+            font-style: italic;
+            border-top: 1px solid #c5c2ba;
+            border-bottom: 1px solid #c5c2ba;
+            padding: 5px 0;
+            margin: 10px 0;
+        }
+
+        /* Lưới nhân vật (3 cột trên desktop) */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            border: 1px solid #999;
+            background-color: #ccc;
+        }
+
+        .card-name {
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 6px;
+            color: #444;
+        }
+
+        .footer-credits {
+            text-align: center;
+            font-size: 10px;
+            color: #777;
+            border-top: 1px solid #c5c2ba;
+            padding-top: 15px;
+            margin-top: 10px;
+        }
+
+        /* ===================================================
+           RESPONSIVE DESIGN (Media Query dành cho màn hình nhỏ)
+           =================================================== */
+        @media (max-width: 650px) {
+            /* Chuyển layout chính từ 2 cột sang 1 cột */
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #c5c2ba;
+                padding-right: 0;
+                padding-bottom: 20px;
+            }
+
+            /* Chuyển lưới nhân vật xuống còn 2 cột hoặc 3 cột nhỏ */
+            .character-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .card img {
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   
+
+    <div class="newspaper-container">
+        <div class="main-layout">
+            
+            <!-- Sidebar / Cột trái -->
+            <aside class="sidebar">
+                <img src="https://i.pinimg.com/736x/ad/45/1d/ad451d7396082c921d26d9fb1d4dad71.jpg" alt="Header Illustration" class="logo-img">
+                <div class="newspaper-title">INQUIRER</div>
+                <ul class="menu">
+                    <li><a href="#">Weblogue</a></li>
+                    <li><a href="#">Issues</a></li>
+                    <li><a href="#">Our Paper</a></li>
+                </ul>
+            </aside>
+
+            <!-- Content / Cột phải -->
+            <main class="content">
+                <div class="quote">“Give me problems, give me work.”</div>
+                
+                <p class="intro-text">
+                    In the year 1878 I took my degree of Doctor of Medicine of the University of London, and proceeded to Netley to go through the course prescribed for surgeons in the army. Having completed my studies there, I was duly attached to the Fifth Northumberland Fusiliers as Assistant Surgeon...
+                </p>
+
+                <div class="section-subtitle">victors & villains</div>
+
+                <!-- Lưới 6 nhân vật -->
+                <div class="character-grid">
+                    <div class="card">
+                        <img src="https://i.pinimg.com/736x/30/80/0e/30800ebf6193a2a3ae19c7050948dd8e.jpg" alt="Holmes">
+                        <div class="card-name">Holmes</div>
+                    </div>
+                    <div class="card">
+                        <img src="https://i.pinimg.com/736x/30/80/0e/30800ebf6193a2a3ae19c7050948dd8e.jpg" alt="Watson">
+                        <div class="card-name">Watson</div>
+                    </div>
+                    <div class="card">
+                        <img src="https://i.pinimg.com/736x/30/80/0e/30800ebf6193a2a3ae19c7050948dd8e.jpg" alt="Holmes">
+                        <div class="card-name">Holmes</div>
+                    </div>
+                    <div class="card">
+                        <img src="https://i.pinimg.com/736x/30/80/0e/30800ebf6193a2a3ae19c7050948dd8e.jpg" alt="Moriarty">
+                        <div class="card-name">Moriarty</div>
+                    </div>
+                    <div class="card">
+                        <img src="https://i.pinimg.com/736x/30/80/0e/30800ebf6193a2a3ae19c7050948dd8e.jpg" alt="Adler">
+                        <div class="card-name">Adler</div>
+                    </div>
+                    <div class="card">
+                        <img src="https://i.pinimg.com/736x/30/80/0e/30800ebf6193a2a3ae19c7050948dd8e.jpg" alt="Winter">
+                        <div class="card-name">Winter</div>
+                    </div>
+                </div>
+
+                <div class="footer-credits">
+                    Illustrations by Sidney Paget. Words by Sir Arthur Conan Doyle.
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4PCINE - Thế giới phim của bạn</title>
+    <!-- THÀNH VIÊN 1: Liên kết các file CSS dùng cho giao diện chung và từng khu vực. -->
+    <link rel="stylesheet" href="../css/chung.css">
+    <link rel="stylesheet" href="../css/trang-chu.css">
+    <link rel="stylesheet" href="../css/kho-phim.css">
+    <link rel="stylesheet" href="../css/tai-khoan.css">
+</head>
+<body>
+    <!-- THÀNH VIÊN 1: ĐẦU TRANG - logo, menu, ô tìm kiếm và nút tài khoản. -->
+    <header class="dau-trang">
+        <a class="logo" href="#" data-trang="trang-chu"><span>4P</span>CINE</a>
+        <nav class="thanh-menu" aria-label="Menu chính">
+            <button class="nut-menu dang-chon" data-trang="trang-chu">Trang chủ</button>
+            <button class="nut-menu" data-trang="kho-phim">Kho phim</button>
+            <button class="nut-menu" data-trang="yeu-thich">Yêu thích</button>
+            <button class="nut-menu" data-trang="lich-su">Đã xem</button>
+        </nav>
+        <form class="thanh-tim-kiem" id="form-tim-kiem">
+            <input id="o-tim-kiem" type="search" placeholder="Tìm tên phim..." aria-label="Tìm tên phim">
+            <button type="submit">Tìm</button>
+        </form>
+        <button class="nut-tai-khoan" id="nut-tai-khoan" data-trang="tai-khoan">Đăng nhập</button>
+    </header>
+
+    <main class="khung-chinh">
+        <!-- THÀNH VIÊN 1: TRANG CHỦ - banner và các khu vực gợi ý phim. -->
+        <section class="trang noi-dung-dang-hien" id="trang-chu">
+            <div class="banner">
+                <div class="banner-chu">
+                    <p class="nhan-nho">KHÔNG GIAN ĐIỆN ẢNH CỦA BẠN</p>
+                    <h1>Mỗi bộ phim,<br><span>một thế giới mới.</span></h1>
+                    <p>Khám phá hành động, hoạt hình, viễn tưởng, tâm lý và nhiều câu chuyện đáng nhớ.</p>
+                    <button class="nut-chinh" data-trang="kho-phim">Khám phá kho phim →</button>
+                </div>
+                <div class="banner-anh">
+                    <img src="https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg" alt="Poster phim Inception">
+                    <span>PHIM NỔI BẬT</span>
+                </div>
+            </div>
+            <section class="khu-phim">
+                <div class="dau-muc"><div><small>CHỌN THEO SỞ THÍCH</small><h2>Bạn muốn xem thể loại nào?</h2></div></div>
+                <div class="ds-the-loai" id="ds-the-loai"></div>
+            </section>
+            <section class="khu-phim"><div class="dau-muc"><div><small>ĐƯỢC QUAN TÂM</small><h2>Phim nổi bật</h2></div><button class="nut-chu" data-trang="kho-phim">Xem tất cả →</button></div><div class="luoi-phim" id="phim-noi-bat"></div></section>
+            <section class="khu-phim"><div class="dau-muc"><div><small>ĐƯỢC ĐÁNH GIÁ CAO</small><h2>Phim điểm cao</h2></div><button class="nut-chu" data-hanh-dong="sap-xep-diem">Xếp theo điểm →</button></div><div class="luoi-phim" id="phim-diem-cao"></div></section>
+            <section class="khu-phim"><div class="dau-muc"><div><small>PHIM DÀNH CHO CẢ NHÀ</small><h2>Hoạt hình và gia đình</h2></div><button class="nut-chu" data-hanh-dong="chon-the-loai" data-the-loai="Hoạt hình">Xem hoạt hình →</button></div><div class="luoi-phim" id="phim-hoat-hinh"></div></section>
+        </section>
+
+        <!-- THÀNH VIÊN 2: KHO PHIM - tìm kiếm, lọc thể loại và sắp xếp phim. -->
+        <section class="trang" id="trang-kho-phim">
+            <div class="tieu-de-trang"><small>KHÁM PHÁ</small><h1>Kho phim</h1><p>Tìm bộ phim phù hợp với sở thích của bạn.</p></div>
+            <div class="bo-loc">
+                <label>Thể loại<select id="loc-the-loai"><option value="tat-ca">Tất cả thể loại</option></select></label>
+                <label>Sắp xếp<select id="sap-xep"><option value="noi-bat">Nổi bật</option><option value="diem-cao">Điểm cao nhất</option><option value="nam-moi">Năm mới nhất</option><option value="ten-a-z">Tên A–Z</option></select></label>
+                <button class="nut-phu" id="nut-xoa-loc">Xóa bộ lọc</button>
+            </div>
+            <p id="so-luong-phim" class="chu-phu"></p>
+            <div class="luoi-phim" id="ket-qua-kho-phim"></div>
+        </section>
+
+        <!-- THÀNH VIÊN 3: CHI TIẾT PHIM - thông tin phim và trình phát video mẫu. -->
+        <section class="trang" id="trang-chi-tiet"><div id="noi-dung-chi-tiet"></div></section>
+
+        <!-- THÀNH VIÊN 4: TÀI KHOẢN - đăng nhập và tạo tài khoản demo. -->
+        <section class="trang" id="trang-tai-khoan">
+            <div class="hop-tai-khoan">
+                <p class="nhan-nho">CHÀO MỪNG ĐẾN 4PCINE</p><h1>Tài khoản của bạn</h1>
+                <div class="nut-doi-bieu-mau"><button class="nut-tab dang-chon" data-bieu-mau="dang-nhap">Đăng nhập</button><button class="nut-tab" data-bieu-mau="dang-ky">Tạo tài khoản</button></div>
+                <form id="form-dang-nhap" class="form-tai-khoan">
+                    <label>Email<input type="email" id="email-dang-nhap" required placeholder="ban@email.com"></label>
+                    <label>Mật khẩu<input type="password" id="mat-khau-dang-nhap" required placeholder="Nhập mật khẩu"></label>
+                    <button class="nut-chinh" type="submit">Đăng nhập</button><p id="loi-dang-nhap" class="thong-bao"></p>
+                </form>
+                <form id="form-dang-ky" class="form-tai-khoan an-di">
+                    <label>Tên hiển thị<input id="ten-dang-ky" required maxlength="40" placeholder="Tên của bạn"></label>
+                    <label>Email<input type="email" id="email-dang-ky" required placeholder="ban@email.com"></label>
+                    <label>Mật khẩu<input type="password" id="mat-khau-dang-ky" required minlength="6" placeholder="Ít nhất 6 ký tự"></label>
+                    <button class="nut-chinh" type="submit">Tạo tài khoản</button><p id="loi-dang-ky" class="thong-bao"></p>
+                </form>
+                <p class="ghi-chu">Đây là tài khoản demo lưu trong trình duyệt, chưa phải hệ thống tài khoản trực tuyến.</p>
+            </div>
+        </section>
+
+        <!-- THÀNH VIÊN 4: YÊU THÍCH VÀ LỊCH SỬ xem của người đang đăng nhập. -->
+        <section class="trang" id="trang-yeu-thich"><div class="tieu-de-trang"><small>THƯ VIỆN CỦA BẠN</small><h1>Phim yêu thích</h1><p>Các bộ phim bạn đã đánh dấu trái tim.</p></div><div class="luoi-phim" id="ds-yeu-thich"></div></section>
+        <section class="trang" id="trang-lich-su"><div class="tieu-de-trang"><small>XEM LẠI</small><h1>Lịch sử xem</h1><p>Các phim bạn đã mở trang chi tiết.</p></div><div class="luoi-phim" id="ds-lich-su"></div></section>
+    </main>
+
+    <!-- THÀNH VIÊN 1: CHÂN TRANG - tên website và ghi chú nguồn phim mẫu. -->
+    <footer class="chan-trang"><a class="logo" href="#" data-trang="trang-chu"><span>4P</span>CINE</a><p>Khám phá câu chuyện yêu thích của bạn.</p><small>Thông tin và poster minh họa; video mẫu không phải phim thương mại đầy đủ.</small></footer>
+
+    <!-- Nạp JavaScript theo thứ tự: dữ liệu trước, rồi các chức năng sử dụng dữ liệu đó. -->
+    <script src="../js/du-lieu-phim.js"></script>
+    <script src="../js/kho-phim.js"></script>
+    <script src="../js/tai-khoan.js"></script>
+    <script src="../js/ung-dung.js"></script>
+</body>
+</html>

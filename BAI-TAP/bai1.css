@@ -1,0 +1,32 @@
+
+header {
+    background-color: #e5e5e5;
+    padding: 30px;
+    text-align: center;
+    margin: 10px;
+}
+
+.menu a {
+    background-color: #e5e5e5;
+    color: black;
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.right {
+    background-color: #e5e5e5;
+    padding: 25px;
+    text-align: center;
+    
+    
+}
+
+footer {
+    background-color: #e5e5e5;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}

@@ -1,0 +1,18 @@
+UL{ 
+   
+    list-style: none;
+}
+nav{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color:ghostwhite ;
+    gap: 50px;
+    height: 40px;
+    justify-content: 20px;
+}
+
+button{
+    background-color: red;
+   
+}
